@@ -5,8 +5,14 @@
 
 ##### 使用方法：一键打包 Docker 镜像
 
-在终端输入以下代码运行 `auto.sh`
+1.在终端输入以下命令 下载脚本 `auto.sh`
 ```bash
-wget http://github.com/ **后续再修改**
+wget http://github.com/（文件还没上传呢）
 ```
 
+2.在终端输入以下命令 运行一键脚本
+```bash
+sh ./auto.sh
+```
+
+3.我也不知道后面要干什么，先占个位先
