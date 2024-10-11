@@ -1,4 +1,4 @@
-# ESurfingDialer-For-Docker
+# ESurfingDialer-For-Docker 目前处于早期阶段
 广东电信天翼校园登入认证脚本。在Docker一键搭建，适用于OpenWrt
 
 ## 基于[Rsplwe](https://github.com/Rsplwe) 大佬的项目 [ESurfingDialer](https://github.com/Rsplwe/ESurfingDialer) ，在Docker环境中运行，参考了 [EricZhou05](https://github.com/EricZhou05) 大佬的 [教程](https://github.com/EricZhou05/ESurfingDialerTutorial) 完成的Docker一键配置脚本
@@ -7,7 +7,7 @@
 
 1.在终端输入以下命令 下载脚本 `auto.sh`
 ```bash
-wget http://github.com/（文件还没上传呢）
+wget http://github.com/（文件还没上传）
 ```
 
 2.在终端输入以下命令 运行一键脚本
