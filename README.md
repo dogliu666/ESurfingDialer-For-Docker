@@ -32,6 +32,16 @@ chmod u+r+x auto.sh
 ```
 若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
 
+##### 可查看Docker容器
+```bash
+docker ps -a
+```
+
+##### 若需要 停止运行 天翼校园认证
+```
+docker stop dialer-client
+```
+
 ##### 若存储空间告急，可删除下载的文件
 ```bash
 cd /root
