@@ -9,11 +9,6 @@ if [ ! -f "Dialer.zip" ]; then
     exit 1
 fi
 
-# 检查文件是否为有效的 zip 文件
-    echo "Dialer.zip 文件无效或已损坏"
-    exit 1
-fi
-
 # 解压缩 Dialer.zip 文件
 if ! unzip -tq Dialer.zip; then
 unzip -o Dialer.zip -d /root/Dialer
