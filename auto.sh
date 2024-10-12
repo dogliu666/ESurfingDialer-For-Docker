@@ -57,9 +57,5 @@ fi
 
 # 运行 docker run 命令
 docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
-if [ $? -ne 0 ]; then
-    echo "Docker 容器运行失败"
-    exit 1
-fi
 
 echo "Docker 容器运行成功"
