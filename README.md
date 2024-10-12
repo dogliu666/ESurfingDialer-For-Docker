@@ -17,4 +17,6 @@ wget wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/
 sh ./auto.sh
 ```
 
-3.我也不知道后面要干什么，先占个位先
+3.运行 输入账密
+
+4.
