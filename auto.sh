@@ -11,11 +11,16 @@ fi
 
 # 解压缩 Dialer.zip 文件
 if ! unzip -tq Dialer.zip; then
+    echo "解压缩 Dialer.zip 失败"
+    exit 1
+fi
+
 unzip -o Dialer.zip -d /root/Dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
     exit 1
 fi
+
 cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; exit 1; }
 
 # 构建 Docker 容器
