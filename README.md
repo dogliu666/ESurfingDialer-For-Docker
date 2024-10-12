@@ -10,13 +10,24 @@
 ```bash
 wget wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/heads/main/auto.sh
 ```
-### 提示权限 ###
 
 2.在终端输入以下命令 运行一键脚本
 ```bash
 sh ./auto.sh
 ```
 
-3.运行 输入账密
+若出现 `Permission denied` 请在 终端 输入 
+```bash
+chmod u+r+x auto.sh
+```
+3.脚本开始执行，此时会自动 构建镜像 并 运行镜像 
+  > **注意**：此过程 用时 取决于 主机性能
 
-4.
+4.在提示 `请输入账号和密码` 时，输入 天翼校园网 账号 和 密码
+  > **注意**：请在 账号 和 密码 之间 使用 **空格** 分离，例如 校园网 账号 为"account"，密码 为 "password"，则 输入"account password"
+
+5.在 终端 输入以下命令查看是否成功连接 天翼校园网
+```bash
+ docker logs -f dialer-client
+```
+若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
