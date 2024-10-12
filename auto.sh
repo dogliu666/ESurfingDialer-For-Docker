@@ -30,6 +30,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "正在导出镜像"
 # 导出 Docker 镜像
 docker save -o Dialer.tar dialer
 if [ $? -ne 0 ]; then
@@ -43,7 +44,8 @@ if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
     exit 1
 fi
-
+ echo "Docker 镜像加载成功"
+ 
 # 输入 校园网 账密 并 保存到 Config.txt 文件
 read -p "请输入账号和密码（用空格分隔）: " account pwd
 echo "account=$account" > Config.txt
