@@ -1,5 +1,6 @@
 #!/bin/bash
-
+cd /root
+wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
 unzip -o Dialer.zip -d /root/Dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
@@ -50,11 +51,3 @@ if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
 fi
-
-# 自动删除文件
-cd /root
-rm -f auto.sh
-rm -rf /root/Dialer
-rm -f /root/Dialer.zip
-rm -f dialer.tar
-rm -f Config.txt
