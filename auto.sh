@@ -64,7 +64,7 @@ if [ -z "$account" ] || [ -z "$pwd" ]; then
 fi
 
 # 从 Config.txt 文件中读取 account 和 pwd
-source ./Config.txt
+source /root/Config.txt
 
 # 运行 docker run 命令
 docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
@@ -73,10 +73,3 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 自动删除文件
-cd /root
-rm -f auto.sh
-rm -rf /root/Dialer
-rm -f /root/Dialer.zip
-rm -f dialer.tar
-rm -f Config.txt
