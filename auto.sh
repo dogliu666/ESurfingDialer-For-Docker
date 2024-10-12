@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd /root
 
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
@@ -62,3 +61,5 @@ if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
 fi
+
+echo "Docker 容器运行成功"
