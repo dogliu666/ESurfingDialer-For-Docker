@@ -1,5 +1,3 @@
-#!/bin/bash
-
 cd /root
 
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
@@ -70,7 +68,7 @@ if [ -z "$account" ] || [ -z "$pwd" ]; then
 fi
 
 # 从 Config.txt 文件中读取 account 和 pwd
-source /root/Config.txt
+source /root/Dialer/Config.txt
 
 # 运行 docker run 命令
 docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
@@ -78,3 +76,4 @@ if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
 fi
+
