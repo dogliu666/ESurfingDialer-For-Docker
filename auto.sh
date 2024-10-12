@@ -3,6 +3,19 @@ cd /root
 
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
 
+# 检查文件是否存在
+if [ ! -f "Dialer.zip" ]; then
+    echo "Dialer.zip 文件不存在"
+    exit 1
+fi
+
+# 检查文件是否为有效的 zip 文件
+    echo "Dialer.zip 文件无效或已损坏"
+    exit 1
+fi
+
+# 解压缩 Dialer.zip 文件
+if ! unzip -tq Dialer.zip; then
 unzip -o Dialer.zip -d /root/Dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
