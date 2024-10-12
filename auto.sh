@@ -55,7 +55,7 @@ fi
 read -p "请输入账号: " account
 echo "account=$account" > Config.txt
 echo "pwd=$pwd" >> Config.txt
-read -sp "请输入密码: " pwd
+read -p "请输入密码: " pwd
 echo
 
 # 验证输入的账号和密码
