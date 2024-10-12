@@ -1,5 +1,7 @@
 #!/bin/bash
+
 cd /root
+
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
 
 # 检查文件是否存在
