@@ -22,7 +22,7 @@ if ! unzip -tq Dialer.zip; then
     exit 1
 fi
 
-# 解压缩 dialer.zip 文件
+# 解压缩 Dialer.zip 文件
 unzip -o Dialer.zip -d /root/Dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
@@ -31,21 +31,21 @@ fi
 cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; exit 1; }
 
 # 构建 Docker 容器
-docker build -t Dialer .
+docker build -t dialer .
 if [ $? -ne 0 ]; then
     echo "Docker 容器构建失败"
     exit 1
 fi
 
 # 导出 Docker 镜像
-docker save -o Dialer.tar Dialer
+docker save -o dialer.tar dialer
 if [ $? -ne 0 ]; then
     echo "Docker 镜像导出失败"
     exit 1
 fi
 
 # 加载 Docker 镜像
-docker load -i ./Dialer.tar
+docker load -i ./dialer.tar
 if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
     exit 1
@@ -70,7 +70,7 @@ echo "pwd=$pwd" >> Config.txt
 source ./Config.txt
 
 # 运行 docker run 命令
-docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always Dialer
+docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
 if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
