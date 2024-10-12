@@ -1,6 +1,8 @@
 #!/bin/bash
 cd /root
+
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
+
 unzip -o Dialer.zip -d /root/Dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
