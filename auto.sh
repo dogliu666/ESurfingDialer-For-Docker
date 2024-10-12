@@ -37,6 +37,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Docker 容器构建成功"
+
 # 导出 Docker 镜像
 docker save -o Dialer.tar dialer
 if [ $? -ne 0 ]; then
@@ -44,12 +46,16 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Docker 镜像导出成功"
+
 # 加载 Docker 镜像
 docker load -i ./Dialer.tar
 if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
     exit 1
 fi
+
+echo "Docker 镜像加载成功"
 
 # 输入 校园网 账密 并 保存到 Config.txt 文件
 read -p "请输入账号和密码（用空格分隔）: " account pwd
@@ -72,4 +78,3 @@ if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
 fi
-
