@@ -31,3 +31,13 @@ chmod u+r+x auto.sh
  docker logs -f dialer-client
 ```
 若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
+
+##### 若存储空间告急，可删除下载的文件
+```bash
+cd /root
+rm -f auto.sh
+rm -rf /root/Dialer
+rm -f /root/Dialer.zip
+rm -f dialer.tar
+rm -f Config.txt
+```
