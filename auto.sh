@@ -50,13 +50,10 @@ if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
     exit 1
 fi
-
 # 输入 校园网 账密 并 保存到 Config.txt 文件
-read -p "请输入账号: " account
+read -p "请输入账号和密码（用空格分隔）: " account pwd
 echo "account=$account" > Config.txt
-read -p "请输入密码: " pwd
 echo "pwd=$pwd" >> Config.txt
-
 echo
 
 # 验证输入的账号和密码
