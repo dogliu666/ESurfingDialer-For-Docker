@@ -50,6 +50,7 @@ if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
     exit 1
 fi
+
 # 输入 校园网 账密 并 保存到 Config.txt 文件
 read -p "请输入账号和密码（用空格分隔）: " account pwd
 echo "account=$account" > Config.txt
@@ -66,7 +67,7 @@ fi
 source ./Config.txt
 
 # 运行 docker run 命令
-docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always Dialer
+docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
 if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
