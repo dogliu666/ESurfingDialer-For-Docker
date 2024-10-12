@@ -44,8 +44,6 @@ read -p "请输入账号和密码（用空格分隔）: " account pwd
 echo "account=$account" > Config.txt
 echo "pwd=$pwd" >> Config.txt
 
-echo
-
 # 验证输入的账号和密码
 if [ -z "$account" ] || [ -z "$pwd" ]; then
     echo "账号或密码不能为空"
