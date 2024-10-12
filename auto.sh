@@ -1,34 +1,15 @@
-#!/bin/bash
-
-cd /root
-
-wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
-
-# 检查文件是否存在
-if [ ! -f "Dialer.zip" ]; then
-    echo "Dialer.zip 文件不存在"
-    exit 1
-fi
-
-# 检查文件大小是否合理
-if [ $(stat -c%s "Dialer.zip") -le 100 ]; then
-    echo "下载的 Dialer.zip 文件大小异常"
-    exit 1
-fi
-
-# 检查文件是否为有效的 zip 文件
 if ! unzip -tq Dialer.zip; then
     echo "Dialer.zip 文件无效或已损坏"
     exit 1
 fi
 
 # 解压缩 Dialer.zip 文件
-unzip -o Dialer.zip -d /root/Dialer
+unzip -o Dialer.zip -d /root/dialer
 if [ $? -ne 0 ]; then
     echo "解压缩 Dialer.zip 失败"
     exit 1
 fi
-cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; exit 1; }
+cd /root/dialer || { echo "目录 /root/Dialer 不存在"; exit 1; }
 
 # 构建 Docker 容器
 docker build -t dialer .
@@ -75,3 +56,11 @@ if [ $? -ne 0 ]; then
     echo "Docker 容器运行失败"
     exit 1
 fi
+
+# 自动删除文件
+cd ..
+rm auto.sh
+rm -f Dialer.zip
+rm -f dialer.tar
+
+echo "所有临时文件已删除"
