@@ -8,7 +8,7 @@
 
 1.在终端输入以下命令 下载脚本 `auto.sh`
 ```bash
-wget wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/heads/main/auto.sh
+wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/heads/main/auto.sh
 ```
 
 2.在终端输入以下命令 运行一键脚本
