@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd /root
 
 wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
