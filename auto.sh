@@ -51,8 +51,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 输入 校园网 账密
+# 输入 校园网 账密 并 保存到 Config.txt 文件
 read -p "请输入账号: " account
+echo "account=$account" > Config.txt
+echo "pwd=$pwd" >> Config.txt
 read -sp "请输入密码: " pwd
 echo
 
@@ -61,10 +63,6 @@ if [ -z "$account" ] || [ -z "$pwd" ]; then
     echo "账号或密码不能为空"
     exit 1
 fi
-
-# 将输入的 账密 保存到 Config.txt 中
-echo "account=$account" > Config.txt
-echo "pwd=$pwd" >> Config.txt
 
 # 从 Config.txt 文件中读取 account 和 pwd
 source ./Config.txt
@@ -77,8 +75,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # 自动删除文件
-cd ..
-rm -rf /root/dialer
-rm -f Dialer.zip
+cd /root
+rm -f auto.sh
+rm -rf /root/Dialer
+rm -f /root/Dialer.zip
 rm -f dialer.tar
 rm -f Config.txt
