@@ -54,8 +54,9 @@ fi
 # 输入 校园网 账密 并 保存到 Config.txt 文件
 read -p "请输入账号: " account
 echo "account=$account" > Config.txt
-echo "pwd=$pwd" >> Config.txt
 read -p "请输入密码: " pwd
+echo "pwd=$pwd" >> Config.txt
+
 echo
 
 # 验证输入的账号和密码
