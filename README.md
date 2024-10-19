@@ -21,10 +21,6 @@ wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/
 sh ./auto.sh
 ```
 
-若出现 `Permission denied` 请在 终端 输入 
-```bash
-chmod u+r+x auto.sh
-```
 3.脚本开始执行，此时会自动 构建镜像 并 运行镜像 
   > **注意**：此过程 用时 取决于 主机性能
 
