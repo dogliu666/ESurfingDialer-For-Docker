@@ -4,6 +4,11 @@
 
 ## 基于 [Rsplwe](https://github.com/Rsplwe) 大佬的项目 [ESurfingDialer](https://github.com/Rsplwe/ESurfingDialer) ，在Docker环境中运行，参考了 [EricZhou05](https://github.com/EricZhou05) 大佬的 [教程](https://github.com/EricZhou05/ESurfingDialerTutorial) 完成的Docker一键配置脚本
 
+- [x] 在线脚本
+- [ ] 离线脚本
+
+# 联网环境下运行
+
 ##### 使用方法：一键打包 Docker 镜像
 
 1.在终端输入以下命令 下载脚本 `auto.sh`
@@ -31,6 +36,11 @@ chmod u+r+x auto.sh
  docker logs -f dialer-client
 ```
 若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
+
+# 离线环境下运行（进行中）
+### 空闲时间较少，抽空完成
+
+# 成功运行后
 
 ##### 可查看Docker容器
 ```bash
