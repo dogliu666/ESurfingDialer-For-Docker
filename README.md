@@ -26,7 +26,7 @@ sh ./auto.sh
   > **注意**：此过程 用时 取决于 主机性能
 
 4.在提示 `请输入账号和密码` 时，输入 天翼校园网 账号 和 密码
-  > **注意**：请在 账号 和 密码 之间 使用 **空格** 分离，例如 校园网 账号 为"account"，密码 为 "password"，则 输入"account password"
+  > **注意**：请在 账号 和 密码 之间 使用 **空格** 分离，例如 校园网 账号 为" `account` "，密码 为 " `password` "，则 输入" `account password` "
 
 5.在 终端 输入以下命令查看是否成功连接 天翼校园网
 ```bash
@@ -35,7 +35,7 @@ sh ./auto.sh
 若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
 
 # 离线环境下运行（进行中）
-##### 空闲时间较少，抽空完成
+
 暂未完成离线部署。建议在线部署：使用无线路由器，改用无线中继模式，为OpenWrt提供网络
 
 # 成功运行后
