@@ -30,7 +30,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "正在导出镜像"
+echo "正在导出镜像(此过程用时可能较长)"
 # 导出 Docker 镜像
 docker save -o Dialer.tar dialer
 if [ $? -ne 0 ]; then
