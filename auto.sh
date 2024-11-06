@@ -14,12 +14,15 @@ if [ -f "$FILE" ]; then
     read -p "文件 $FILE 已存在。是否删除并重新下载？(y/n): " choice
     case "$choice" in 
         y|Y ) 
-            rm -f auto.sh
             rm -rf /root/Dialer
-            rm -f /root/Dialer.zip
-            rm -f dialer.tar
-            echo "下载 Dialer.zip 文件"
-            wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
+            read -p "确认删除 /root/Dialer 目录及其所有内容吗？(y/n): " confirm
+            if [[ "$confirm" =~ ^[Yy]$ ]]; then
+                rm -rf /root/Dialer
+                rm -f dialer.tar
+                echo "删除 /root/Dialer 目录及其所有内容"
+            else
+                echo "跳过删除 /root/Dialer 目录"
+            fi
             ;;
         n|N ) 
             echo "跳过下载"
@@ -28,9 +31,15 @@ if [ -f "$FILE" ]; then
             echo "无效选择，跳过下载"
             ;;
     esac
-else
+fi
+
+if [ ! -f "$FILE" ]; then
     echo "下载 Dialer.zip 文件"
     wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
+    if [ $? -ne 0 ]; then
+        echo "下载 Dialer.zip 失败"
+        exit 1
+    fi
 fi
 
 # 解压缩 Dialer.zip 文件
@@ -97,3 +106,4 @@ else
         exit 1
     fi
 fi
+
