@@ -4,6 +4,7 @@ cd /root
 # 检查是否安装了 Docker
 if ! command -v docker &> /dev/null; then
     echo "Docker 未安装"
+    rm -f auto.sh
     exit 1
 fi
 
@@ -38,6 +39,7 @@ if [ ! -f "$FILE" ]; then
     wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
     if [ $? -ne 0 ]; then
         echo "下载 Dialer.zip 失败"
+        rm -f auto.sh
         exit 1
     fi
 fi
@@ -45,15 +47,17 @@ fi
 # 解压缩 Dialer.zip 文件
 if ! unzip -o Dialer.zip -d /root/Dialer; then
     echo "解压缩 Dialer.zip 失败"
+    rm -f auto.sh
     exit 1
 fi
 
-cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; exit 1; }
+cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; rm -f auto.sh； exit 1; }
 
 # 构建 Docker 容器
 docker build -t dialer .
 if [ $? -ne 0 ]; then
     echo "Docker 容器构建失败"
+    rm -f auto.sh
     exit 1
 fi
 
@@ -62,6 +66,7 @@ echo "正在导出镜像(此过程用时可能较长)"
 docker save -o Dialer.tar dialer
 if [ $? -ne 0 ]; then
     echo "Docker 镜像导出失败"
+    rm -f auto.sh
     exit 1
 fi
 
@@ -69,6 +74,7 @@ fi
 docker load -i ./Dialer.tar
 if [ $? -ne 0 ]; then
     echo "Docker 镜像加载失败"
+    rm -f auto.sh
     exit 1 
 fi
 echo "Docker 镜像加载成功"
@@ -103,6 +109,7 @@ else
         echo "Docker 容器正在运行"
     else
         echo "Docker 容器未运行，请检查"
+        rm -f auto.sh
         exit 1
     fi
 fi
