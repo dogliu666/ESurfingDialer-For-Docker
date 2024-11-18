@@ -48,6 +48,7 @@ fi
 if ! unzip -o Dialer.zip -d /root/Dialer; then
     echo "解压缩 Dialer.zip 失败"
     rm -f auto.sh
+    rm -f Dialer.zip
     exit 1
 fi
 
@@ -96,11 +97,12 @@ done
 # 运行 docker run 命令
 docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
 
+echo "尝试运行 Docekr 容器"
 sleep 5
 
 # 检查 Docker 容器是否正在运行
 if docker ps | grep -q dialer-client; then
-    echo "Docker 容器正在运行"
+    echo "Docker 容器运行成功"
 else
     echo "Docker 容器未运行"
     echo "5s 后再次尝试运行 Docker 容器"
