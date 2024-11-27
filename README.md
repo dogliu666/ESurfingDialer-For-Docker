@@ -29,9 +29,13 @@ curl wget https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/
 ```
 若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则代表 已成功 认证 天翼校园网
 
+---
+
 # 离线环境下运行（进行中）
 
-暂未完成离线部署。建议在线部署：使用无线路由器，改用无线中继模式，为OpenWrt提供网络
+暂未完成离线部署。建议在线部署，为OpenWrt设备提供网络，以实现在线部署
+
+---
 
 # 成功运行后
 
