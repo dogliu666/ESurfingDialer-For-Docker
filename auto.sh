@@ -19,7 +19,7 @@ if [ -f "$FILE" ]; then
             read -p "确认删除 /root/Dialer 目录及其所有内容吗？(y/n): " confirm
             if [[ "$confirm" =~ ^[Yy]$ ]]; then
                 rm -rf /root/Dialer
-                rm -f dialer.tar
+                rm -f Dialer.tar
                 echo "删除 /root/Dialer 目录及其所有内容"
             else
                 echo "跳过删除 /root/Dialer 目录"
@@ -113,4 +113,3 @@ else
         exit 1
     fi
 fi
-
