@@ -39,7 +39,6 @@ if [ ! -f "$FILE" ]; then
     wget https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip
     if [ $? -ne 0 ]; then
         echo "下载 Dialer.zip 失败"
-        rm -f auto.sh
         exit 1
     fi
 fi
@@ -47,12 +46,22 @@ fi
 # 解压缩 Dialer.zip 文件
 if ! unzip -o Dialer.zip -d /root/Dialer; then
     echo "解压缩 Dialer.zip 失败"
-    rm -f auto.sh
     rm -f Dialer.zip
     exit 1
 fi
 
 cd /root/Dialer || { echo "目录 /root/Dialer 不存在"; rm -f auto.sh； exit 1; }
+
+# 输入 校园网 账密 并 保存到 Config.txt 文件
+read -p "请输入账号和密码（用空格分隔）: " account pwd
+# 验证输入的账号和密码
+while [ -z "$account" ] || [ -z "$pwd" ]; do
+    echo "账号或密码不能为空，请重新输入"
+    read -p "请输入账号和密码（用空格分隔）: " account pwd
+done
+
+echo "account=$account" > Config.txt
+echo "pwd=$pwd" >> Config.txt
 
 # 构建 Docker 容器
 docker build -t dialer .
@@ -79,17 +88,6 @@ if [ $? -ne 0 ]; then
     exit 1 
 fi
 echo "Docker 镜像加载成功"
-
-# 输入 校园网 账密 并 保存到 Config.txt 文件
-read -p "请输入账号和密码（用空格分隔）: " account pwd
-echo "account=$account" > Config.txt
-echo "pwd=$pwd" >> Config.txt
-
-# 验证输入的账号和密码
-while [ -z "$account" ] || [ -z "$pwd" ]; do
-    echo "账号或密码不能为空，请重新输入"
-    read -p "请输入账号和密码（用空格分隔）: " account pwd
-done
 
 # 从 Config.txt 文件中读取 account 和 pwd
 . /root/Dialer/Config.txt
