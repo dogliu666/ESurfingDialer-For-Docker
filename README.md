@@ -60,6 +60,6 @@ cd /root
 rm -f auto.sh
 rm -rf /root/Dialer
 rm -f /root/Dialer.zip
-rm -f dialer.tar
+rm -f Dialer.tar
 rm -f Config.txt
 ```
