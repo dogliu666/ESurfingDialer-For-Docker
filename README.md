@@ -33,6 +33,7 @@
    docker logs -f dialer-client
    ```
    若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The login has been authorized.` 则表示已成功认证天翼校园网。
+   
    若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The network has been connected.`则表示已成功连接网络。
 
 ## 离线运行（进行中）
