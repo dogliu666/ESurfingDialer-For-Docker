@@ -19,16 +19,16 @@ if [ -f "$FILE" ]; then
             read -p "确认删除 /root/Dialer 目录及其所有内容吗？(y/n): " confirm
             case "$confirm" in
                 y|Y )
-                if [ -f "Dialer.tar" ]; then
-                    rm -f Dialer.tar
-                fi
-                    rm -f Dialer.tar
+                    if [ -f "Dialer.tar" ]; then
+                        rm -f Dialer.tar
+                    fi
                     echo "删除 /root/Dialer 目录及其所有内容"
                     ;;
                 * )
                     echo "跳过删除 /root/Dialer 目录"
                     ;;
             esac
+            rm -f "$FILE"
             ;;
         n|N ) 
             echo "跳过下载"
