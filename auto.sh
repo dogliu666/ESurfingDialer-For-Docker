@@ -31,7 +31,7 @@ if [ -f "$FILE" ]; then
             esac
             ;;
         n|N ) 
-            echo "跳过下载"`
+            echo "跳过下载"
             ;;
         * ) 
             echo "无效选择，跳过下载"
