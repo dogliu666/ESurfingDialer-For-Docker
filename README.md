@@ -35,7 +35,7 @@
    
    若输出 `INFO [com.rsplwe.esurfing.Client] (Client:**) - The network has been connected.`则表示已成功连接网络。
 
-## 离线运行（进行中）
+## 离线运行（兼容性测试中）
 
 暂未完成离线部署。建议在线部署，为 OpenWrt 设备提供网络，以实现在线部署。
 
