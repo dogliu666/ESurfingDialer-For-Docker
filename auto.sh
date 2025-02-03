@@ -13,12 +13,12 @@ FILE="Dialer.zip"
 
 if [ -f "$FILE" ]; then
     echo -e "\e[34m文件 $FILE 已存在。是否删除并重新下载？(y/n): \e[0m"
-    read -p "" choice
+    read -p "请输入选择 (y/n): " choice
     case "$choice" in 
         y|Y ) 
             rm -rf /root/Dialer
             echo -e "\e[34m确认删除 /root/Dialer 目录及其所有内容吗？(y/n): \e[0m"
-            read -p "" confirm
+            read -p "请输入确认 (y/n): " confirm
             case "$confirm" in
                 y|Y )
                     if [ -f "Dialer.tar" ]; then
@@ -60,7 +60,7 @@ fi
 cd /root/Dialer || { echo -e "\e[31m目录 /root/Dialer 不存在\e[0m"; rm -f auto.sh; exit 1; }
 
 # 输入 校园网 账密 并 保存到 Config.txt 文件
-echo -e "\e[34m请输入账号和密码（用空格分隔）: \e[0m"
+echo -e "\e[34m请输入 账号 和 密码（用空格分隔）: \e[0m"
 read -p "" account pwd
 # 验证输入的账号和密码
 while [ -z "$account" ] || [ -z "$pwd" ]; do
