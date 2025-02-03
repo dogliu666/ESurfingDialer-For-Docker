@@ -80,7 +80,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "正在导出镜像(此过程用时可能较长)"
+echo -e "\e[34m正在导出镜像(此过程用时可能较长)\e[0m"
 # 导出 Docker 镜像
 docker save -o Dialer.tar dialer
 if [ $? -ne 0 ]; then
@@ -104,20 +104,20 @@ echo -e "\e[32mDocker 镜像加载成功\e[0m"
 # 运行 docker run 命令
 docker run -itd -e DIALER_USER="$account" -e DIALER_PASSWORD="$pwd" --name dialer-client --network host --restart=always dialer
 
-echo "尝试运行 Docekr 容器"
+echo -e "\e[34m尝试运行 Docker 容器\e[0m"
 sleep 5
 
 # 检查 Docker 容器是否正在运行
 if docker ps | grep -q dialer-client; then
     echo -e "\e[32mDocker 容器运行成功\e[0m"
 else
-    echo "Docker 容器未运行"
-    echo "5s 后再次尝试运行 Docker 容器"
+    echo -e "\e[31mDocker 容器未运行\e[0m"
+    echo -e "\e[31m5s 后再次尝试运行 Docker 容器\e[0m"
     sleep 5
     if docker ps | grep -q dialer-client; then
-        echo "Docker 容器正在运行"
+        echo -e "\e[32mDocker 容器正在运行\e[32m"
     else
-        echo "Docker 容器未运行，请检查"
+        echo -e "\e[31mDocker 容器未运行，请检查\e[0m"
         rm -f auto.sh
         exit 1
     fi
