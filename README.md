@@ -22,14 +22,21 @@
 
 # 离线运行
 
-1. 下载文件 [Dialer.zip](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip) 和 [auto.sh](https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/heads/main/auto.sh)
-2. 将 所下载的两个文件 上传至 OpenWrt路由器 `/root`下, 其文件结构为
+1. 下载文件 [Dialer.zip](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip) + [auto.sh](https://raw.githubusercontent.com/dogliu666/ESurfingDialer-For-Docker/refs/heads/main/auto.sh) + [openjdk-23.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23.tar) 总计3个文件上传至OpenWrt设备上
+
+2. 将 所下载的3个文件 上传至 OpenWrt路由器 `/root`下, 其文件结构为
 ```
 .
 ├── auto.sh
+├── openjdk-23.tar
 └── Dialer.zip 
 ```
+
 3. 使用指令以离线构建Docker容器
+```bash
+docker load -i openjdk-23.tar
+```
+
 ```bash
 bash  auto.sh
 ```
