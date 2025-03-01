@@ -22,26 +22,38 @@
 
 # 离线运行
 
-1. 下载文件 [Dialer.zip](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip) + [auto.sh](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/auto.sh) + [openjdk-23.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23.tar) **总计3个文件**上传至设备上
+1. 下载文件
+   1. [Dialer.zip](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip)
+   2. [auto.sh](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/auto.sh)
+   3. **根据设备架构选择其中一个文件**[openjdk-23-ARM64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23-ARM64.tar)或[openjdk-23-x86_64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23-x86_64.tar)
 
-2. 将 所下载的3个文件 上传至 设备 `/root`下，其文件结构为
+   ### 总计3个文件上传至设备上
+   
+
+3. 将 所下载的3个文件 上传至 设备 `/root`下，其文件结构为
 ```
 .
 ├── auto.sh
-├── openjdk-23.tar
+├── openjdk-23-{Architecture}.tar
 └── Dialer.zip 
 ```
 
 3. 使用指令以离线构建Docker容器
 - 首先加载镜像文件`openjdk-23`
+  ### 注意: 需要根据设备的架构选择
+  若设备架构为`x86_64`
    ```bash
-   docker load -i openjdk-23.tar
+   docker load -i openjdk-23-x86_64.tar
+   ```
+   若设备为`ARM64`
+    ```bash
+   docker load -i openjdk-23-ARM64.tar
    ```
 - 然后运行自动脚本
    ```bash
    bash  auto.sh
    ```
-**在询问`文件 Dialer.zip 已存在。是否删除并重新下载？(y/n):`时, 选择 `n`**
+### 在询问`文件 Dialer.zip 已存在。是否删除并重新下载？(y/n):`时, 选择 `n`
 
 ## 脚本运行时
 1. 脚本开始执行，此时会自动构建并运行镜像。
