@@ -25,7 +25,7 @@
 1. 下载文件
    1. [Dialer.zip](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/Dialer.zip)
    2. [auto.sh](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/auto.sh)
-   3. **根据设备架构选择其中一个文件**[openjdk-23-ARM64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23-ARM64.tar)或[openjdk-23-x86_64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/openjdk-23-x86_64.tar)
+   3. **根据设备架构选择其中一个文件**[amazoncorretto-23-ARM64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/amazoncorretto-23-ARM64.tar)或[amazoncorretto-23-x86_64.tar](https://github.com/dogliu666/ESurfingDialer-For-Docker/releases/download/Latest/amazoncorretto-23-x86_64.tar)
 
    ### 总计3个文件上传至设备上
    
@@ -34,20 +34,20 @@
 ```
 .
 ├── auto.sh
-├── openjdk-23-{Architecture}.tar
+├── amazoncorretto-23-{Architecture}.tar
 └── Dialer.zip 
 ```
 
 3. 使用指令以离线构建Docker容器
-- 首先加载镜像文件`openjdk-23`
+- 首先加载镜像文件`amazoncorretto-23`
   ### 注意: 需要根据设备的架构选择
   若设备架构为`x86_64`
    ```bash
-   docker load -i openjdk-23-x86_64.tar
+   docker load -i amazoncorretto-23-x86_64.tar
    ```
    若设备为`ARM64`
     ```bash
-   docker load -i openjdk-23-ARM64.tar
+   docker load -i amazoncorretto-23-ARM64.tar
    ```
 - 然后运行自动脚本
    ```bash
